@@ -2,37 +2,82 @@
 <html>
 <head>
 <style>
+html, body {
+	height: 100%;
+}
+
+.titleBar {
+	height: 10%;
+	width: 100%;
+}
+
+.descriptionBox {
+	height: 10%;
+	width: 100%;
+}
+
+.randomNumberBox {
+	height: 30%;
+	text-align: center;
+	font-size: 15vmin;
+	font-weight: bold;
+}
+
+.buttonBox {
+	height: 50%;
+	width: 100%;
+}
+
 .title {
  text-align: center;
- font-size: 100px;
+ font-size: 10vmin;
+ margin: 0px 0px 0px 0px;
 }
 
 .description {
  text-align: center;
- font-size: 80px;
+ font-size: 5vmin;
+ margin: 0px 0px 0px 0px;
 }
-
-.rNumber {
- text-align: center;
- font-size: 150px;
- font-weight: bold;
-}
-
+ 
 .bottomButton {
  position: sticky;
- bottom: 1;
+ bottom: 0px;
  width: 100%;
- height: 300px;
- font-size: 150px;
+ height: 100%;
+ font-size: 15vmin;
+}
+
+.fullPage {
+	height: 100%;
+	width: 100%;
 }
 </style>
 </head>
 
 <body>
-
-<h1 class="title">Circle Bowl RNG</h1>
-<p class="description">Press the button below to get a random number from 1 and 300</p>
-<p class="rNumber" id="randomNumber"> </p>
-<button class="bottomButton" type="button" onClick='document.getElementById("randomNumber").innerHTML = Math.floor(Math.random() * 300)+1'>New Number</button>
+<div class="fullPage">
+	<div class="titleBar">
+		<h1 class="title">Circle Bowl RNG</h1>
+	</div>
+	<div class="descriptionBox">
+		<p class="description">Press the button below to get a random number from 1 and 300</p>
+	</div>
+	<div class="randomNumberBox">
+			<p id="randomNumber">0</p>
+		</div>
+	<div class="buttonBox">
+		<button class="bottomButton" type="button" id="buttonClicked">New Number</button>
+	</div>
+</div>
 </body>
+
+<script>
+	document.getElementById("buttonClicked").onclick = function() {getRandomNumber()};
+	function getRandomNumber() {
+		document.getElementById("randomNumber").innerHTML = Math.floor(Math.random() * 300)+1;
+	}
+
+</script>
+
 </html>
