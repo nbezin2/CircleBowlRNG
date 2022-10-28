@@ -74,8 +74,25 @@ html, body {
 
 <script>
 	document.getElementById("buttonClicked").onclick = function() {getRandomNumber()};
-	function getRandomNumber() {
-		document.getElementById("randomNumber").innerHTML = Math.floor(Math.random() * 300)+1;
+     	function getRandomNumber() {
+                var rn = Math.floor(Math.random() * 10)+ 1;
+                var max = 0;
+                var min = 0; 
+                switch(rn) {
+                case 0, 7:
+                    max = 89;
+                    min = 1
+                    break;
+                case 1, 2, 3, 4, 5, 6:
+                    max = 219;
+                    min = 90;
+                    break;
+                default:
+                    max = 300;
+                    min = 220;
+                    break;
+                }
+		document.getElementById("randomNumber").innerHTML = Math.floor(Math.random() * (max-min))+min;
 	}
 
 </script>
